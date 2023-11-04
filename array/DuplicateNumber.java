@@ -27,5 +27,6 @@ public class DuplicateNumber {
                 System.out.println("the number repeating itself is "+ arr[i]);
             }
         }
+        sc.close();
     }
 }

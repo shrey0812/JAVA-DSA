@@ -26,5 +26,6 @@ public class FindNumber{
         else{
             System.out.println("not found");
         }
+        sc.close();
     }
 }
