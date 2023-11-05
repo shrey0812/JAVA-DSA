@@ -113,6 +113,22 @@ public class OperationLinkedList {
 
     }
 
+    public int search(int data){
+        int position=0;
+        int count=1;
+        ListNode node=head;
+        while (node!=null) {
+            
+            if(node.data==data)
+            {
+                position=count;
+            }
+            node=node.next;
+            count++;
+        }
+        return position;
+    }
+
 
     public static void main(String[] args) {
         OperationLinkedList oll =new OperationLinkedList();
@@ -128,8 +144,16 @@ public class OperationLinkedList {
         }
         oll.display();
         //oll.insertAtPosition(13, 1);
-        oll.deleteAtPosition(3);
-        oll.display();
+       // oll.deleteAtPosition(3);
+        //oll.display();
+        System.out.println("Enter data to be searched");
+        int data= sc.nextInt();
+        int position= oll.search(data);
+        if(position!=0){
+            System.out.println("Present at "+position);
+        }
+        else
+        System.out.println("Not present");
         sc.close();
     }
 }
