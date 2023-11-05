@@ -13,6 +13,25 @@ public class SingleLinkedList {
             this.next= null;
         }
     }
+    public void display(){
+        ListNode current =head;
+        while (current!=null) {
+            System.out.print(current.data+"-->");
+            current=current.next;
+        }
+        System.out.print("null \n");
+    }
+    
+    public int lengthOfList(){
+        int count=0;
+        ListNode current =head;
+        while (current!=null) {
+            count++;
+            current=current.next;
+        }
+        return count;
+    }
+
     public static void main(String[] args) {
         SingleLinkedList sll = new SingleLinkedList();
         sll.head= new ListNode(10);
@@ -23,12 +42,9 @@ public class SingleLinkedList {
         sll.head.next= second;
         second.next= third;
         third.next= fourth;
-
-        ListNode current =sll.head;
-        while (current!=null) {
-            System.out.print(current.data+"-->");
-            current=current.next;
-        }
-        System.out.print("null");
-    } 
+        sll.display();
+        int count= sll.lengthOfList();
+        System.out.println("The number of nodes in list is "+count);
+    }
+     
 }
