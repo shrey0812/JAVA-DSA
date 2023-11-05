@@ -1,4 +1,4 @@
-package LinkedList;
+package LinkedList.singleLL;
 
 public class SingleLinkedList {
     
@@ -24,6 +24,9 @@ public class SingleLinkedList {
     
     public int lengthOfList(){
         int count=0;
+        if(head==null){
+            return 0;
+        }
         ListNode current =head;
         while (current!=null) {
             count++;
