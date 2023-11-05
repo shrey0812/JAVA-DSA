@@ -17,11 +17,13 @@ public class OperationLinkedList {
         }
     }
 
+
     public void insertAtBegin(int value){
         ListNode newnNode= new ListNode(value);
         newnNode.next=head;
         head=newnNode;
     }
+
 
     public void display(){
         ListNode currentListNode = head;
@@ -31,6 +33,7 @@ public class OperationLinkedList {
         }
         System.out.print("null \n");
     }
+
 
     public void insertAtLast(int value){
         ListNode newNode = new ListNode(value);
@@ -47,6 +50,7 @@ public class OperationLinkedList {
         }
     }
     
+
     public void insertAtPosition(int value,int position){
         ListNode newNode = new ListNode(value);
         int count =1;
@@ -66,6 +70,29 @@ public class OperationLinkedList {
         
     }
 
+
+    public void deleteAtFirst(){
+        if(head==null){
+            return ;
+        }
+        ListNode temp = head;
+        head=head.next;
+        temp.next=null;
+    }
+
+    public void deleteAtLast(){
+        if(head==null){
+            return;
+        }
+        if(head.next==null){
+            head=null;
+        }
+        ListNode current=head;
+        while(current.next.next!=null){
+            current=current.next;  
+        }
+        current.next=null;
+    }
     public static void main(String[] args) {
         OperationLinkedList oll =new OperationLinkedList();
         Scanner sc = new Scanner(System.in);
@@ -79,7 +106,8 @@ public class OperationLinkedList {
             oll.insertAtLast(value);
         }
         oll.display();
-        oll.insertAtPosition(13, 1);
+        //oll.insertAtPosition(13, 1);
+        oll.deleteAtLast();
         oll.display();
         sc.close();
     }
