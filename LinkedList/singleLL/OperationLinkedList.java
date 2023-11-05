@@ -87,12 +87,33 @@ public class OperationLinkedList {
         if(head.next==null){
             head=null;
         }
-        ListNode current=head;
+       else{
+         ListNode current=head;
         while(current.next.next!=null){
             current=current.next;  
         }
         current.next=null;
+       }
     }
+
+
+    void deleteAtPosition(int position){
+        if(position==1){
+            head=head.next;
+        }
+        else{
+            int count =1;
+            ListNode current = head;
+            while (count<position-1) {
+                current=current.next;
+                count++;
+            }
+            current.next=current.next.next;
+        }
+
+    }
+
+
     public static void main(String[] args) {
         OperationLinkedList oll =new OperationLinkedList();
         Scanner sc = new Scanner(System.in);
@@ -107,7 +128,7 @@ public class OperationLinkedList {
         }
         oll.display();
         //oll.insertAtPosition(13, 1);
-        oll.deleteAtLast();
+        oll.deleteAtPosition(3);
         oll.display();
         sc.close();
     }
