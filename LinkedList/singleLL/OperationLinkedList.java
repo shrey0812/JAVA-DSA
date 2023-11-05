@@ -50,13 +50,20 @@ public class OperationLinkedList {
     public void insertAtPosition(int value,int position){
         ListNode newNode = new ListNode(value);
         int count =1;
-        ListNode current = head;
+        if(position==1){
+            newNode.next=head;
+            head=newNode;
+        }
+        else {
+            ListNode current = head;
         while(count <position-1){
             current= current.next;
             count++;
         }
         newNode.next= current.next;
         current.next= newNode;
+        }
+        
     }
 
     public static void main(String[] args) {
@@ -68,6 +75,7 @@ public class OperationLinkedList {
         System.out.println("Enter the data in the nodes of the List");
         for(int i=0;i<n;i++){
             value = sc.nextInt();
+            //oll.insertAtBegin(value);
             oll.insertAtLast(value);
         }
         oll.display();
