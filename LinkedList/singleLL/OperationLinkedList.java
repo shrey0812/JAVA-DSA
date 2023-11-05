@@ -2,7 +2,7 @@ package LinkedList.singleLL;
 
 import java.util.Scanner;
 
-public class InsertionLinkedList {
+public class OperationLinkedList {
     
     private ListNode head;
 
@@ -29,13 +29,14 @@ public class InsertionLinkedList {
             System.out.print(currentListNode.data+" --> ");
             currentListNode=currentListNode.next;
         }
-        System.out.print("null");
+        System.out.print("null \n");
     }
 
     public void insertAtLast(int value){
         ListNode newNode = new ListNode(value);
         if(head==null){
             head=newNode;
+            return;
         }
         else{
             ListNode current =head;
@@ -45,9 +46,21 @@ public class InsertionLinkedList {
             current.next=newNode;
         }
     }
+    
+    public void insertAtPosition(int value,int position){
+        ListNode newNode = new ListNode(value);
+        int count =1;
+        ListNode current = head;
+        while(count <position-1){
+            current= current.next;
+            count++;
+        }
+        newNode.next= current.next;
+        current.next= newNode;
+    }
 
     public static void main(String[] args) {
-        InsertionLinkedList ill =new InsertionLinkedList();
+        OperationLinkedList oll =new OperationLinkedList();
         Scanner sc = new Scanner(System.in);
         int value;
         System.out.println("Enter the number of nodes in List");
@@ -55,9 +68,11 @@ public class InsertionLinkedList {
         System.out.println("Enter the data in the nodes of the List");
         for(int i=0;i<n;i++){
             value = sc.nextInt();
-            ill.insertAtLast(value);
+            oll.insertAtLast(value);
         }
-        ill.display();
+        oll.display();
+        oll.insertAtPosition(13, 1);
+        oll.display();
         sc.close();
     }
 }
