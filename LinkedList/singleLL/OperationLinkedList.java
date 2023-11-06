@@ -133,7 +133,11 @@ public class OperationLinkedList {
         ListNode reversed = null;
         ListNode current = head;
         ListNode next=null;
-        while (current!=null) {
+        if(head==null || head.next==null){
+            return head;
+        }
+        else{
+            while (current!=null) {
             next= current.next;
             current.next= reversed;
             reversed= current;
@@ -141,6 +145,7 @@ public class OperationLinkedList {
         }
 
         return reversed;
+        }
     }
 
     public int lengthOfList(){
@@ -168,15 +173,35 @@ public class OperationLinkedList {
         return current.data;
     }
 
-    public int findNodeFromEnd(int position){
+    public ListNode findNodeFromEnd(int position){
         int length = lengthOfList();
         int count=0;
         ListNode current = head;
-        while (count<(length-position)) {
+        if(head==null){
+            return null;
+        }
+        if(position<=0){
+            throw new IllegalArgumentException("Invalide value: "+position);
+        }
+        else{
+            while (count<(length-position)) {
             current=current.next;
             count++;
         }
-        return current.data;
+        return current;
+        }
+    }
+
+    public void removeDupFromSortedLL(){
+        ListNode current =head;
+        while (current!=null  && current.next!=null) {
+            if(current.data==current.next.data){
+                current.next=current.next.next;
+            }
+            else{
+                current=current.next; 
+            }
+        }
     }
 
 
@@ -211,8 +236,10 @@ public class OperationLinkedList {
         // }
         // int middleNode = oll.middleNode();
         // System.out.println("The middlenode is "+middleNode);
-        int node = oll.findNodeFromEnd(5);
-        System.out.println(node);
+        // ListNode node = oll.findNodeFromEnd(5);
+        // System.out.println(node.data);
+         oll.removeDupFromSortedLL();
+        oll.display();
         sc.close();
     }
 }
