@@ -168,6 +168,17 @@ public class OperationLinkedList {
         return current.data;
     }
 
+    public int findNodeFromEnd(int position){
+        int length = lengthOfList();
+        int count=0;
+        ListNode current = head;
+        while (count<(length-position)) {
+            current=current.next;
+            count++;
+        }
+        return current.data;
+    }
+
 
     public static void main(String[] args) {
         OperationLinkedList oll =new OperationLinkedList();
@@ -198,8 +209,10 @@ public class OperationLinkedList {
         //     System.out.print(reversed.data+" --> ");
         //     reversed=reversed.next;
         // }
-        int middleNode = oll.middleNode();
-        System.out.println("The middlenode is "+middleNode);
+        // int middleNode = oll.middleNode();
+        // System.out.println("The middlenode is "+middleNode);
+        int node = oll.findNodeFromEnd(5);
+        System.out.println(node);
         sc.close();
     }
 }
