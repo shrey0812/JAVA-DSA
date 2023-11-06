@@ -129,6 +129,20 @@ public class OperationLinkedList {
         return position;
     }
 
+    public ListNode reverse(){
+        ListNode reversed = null;
+        ListNode current = head;
+        ListNode next=null;
+        while (current!=null) {
+            next= current.next;
+            current.next= reversed;
+            reversed= current;
+            current= next;
+        }
+
+        return reversed;
+    }
+
 
     public static void main(String[] args) {
         OperationLinkedList oll =new OperationLinkedList();
@@ -146,14 +160,19 @@ public class OperationLinkedList {
         //oll.insertAtPosition(13, 1);
        // oll.deleteAtPosition(3);
         //oll.display();
-        System.out.println("Enter data to be searched");
-        int data= sc.nextInt();
-        int position= oll.search(data);
-        if(position!=0){
-            System.out.println("Present at "+position);
+        // System.out.println("Enter data to be searched");
+        // int data= sc.nextInt();
+        // int position= oll.search(data);
+        // if(position!=0){
+        //     System.out.println("Present at "+position);
+        // }
+        // else
+        // System.out.println("Not present");
+        ListNode reversed=oll.reverse();
+        while (reversed!=null) {
+            System.out.print(reversed.data+" --> ");
+            reversed=reversed.next;
         }
-        else
-        System.out.println("Not present");
         sc.close();
     }
 }
