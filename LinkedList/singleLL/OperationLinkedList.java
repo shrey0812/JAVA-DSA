@@ -143,6 +143,31 @@ public class OperationLinkedList {
         return reversed;
     }
 
+    public int lengthOfList(){
+        int count=0;
+        if(head==null){
+            return 0;
+        }
+        ListNode current =head;
+        while (current!=null) {
+            count++;
+            current=current.next;
+        }
+        return count;
+    }
+
+
+    public int middleNode(){
+        int count=0;
+        int length = lengthOfList();
+        ListNode current = head;
+        while (count<(length/2)) {
+            current = current.next;
+            count++;
+        }
+        return current.data;
+    }
+
 
     public static void main(String[] args) {
         OperationLinkedList oll =new OperationLinkedList();
@@ -168,11 +193,13 @@ public class OperationLinkedList {
         // }
         // else
         // System.out.println("Not present");
-        ListNode reversed=oll.reverse();
-        while (reversed!=null) {
-            System.out.print(reversed.data+" --> ");
-            reversed=reversed.next;
-        }
+        // ListNode reversed=oll.reverse();
+        // while (reversed!=null) {
+        //     System.out.print(reversed.data+" --> ");
+        //     reversed=reversed.next;
+        // }
+        int middleNode = oll.middleNode();
+        System.out.println("The middlenode is "+middleNode);
         sc.close();
     }
 }
