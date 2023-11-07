@@ -223,6 +223,26 @@ public class OperationLinkedList {
     }
 
 
+    public void removeGivenKey(int value){
+        ListNode current =head;
+        ListNode temp=null;
+        if(head==null){
+            return;
+        }
+        else if(head.data==value){
+            head=head.next;
+        }
+        else{
+            while (current!=null&&current.data!=value) {
+            temp=current;
+            current=current.next;
+        }
+        if(current==null)return;
+        temp.next=current.next;
+        }
+    }
+
+
     public static void main(String[] args) {
         OperationLinkedList oll =new OperationLinkedList();
         Scanner sc = new Scanner(System.in);
@@ -258,7 +278,8 @@ public class OperationLinkedList {
         // System.out.println(node.data);
         // oll.removeDupFromSortedLL();
         // oll.display();
-        oll.insertSorted(4);
+        // oll.insertSorted(4);
+         oll.removeGivenKey(6);
         oll.display();
         sc.close();
     }
