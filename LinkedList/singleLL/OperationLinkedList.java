@@ -243,6 +243,20 @@ public class OperationLinkedList {
     }
 
 
+    public boolean detectLoop(){
+        ListNode fastPtr=head;
+        ListNode slowPtr=head;
+        while (fastPtr!=null&&fastPtr.next!=null) {
+            fastPtr=fastPtr.next.next;
+            slowPtr=slowPtr.next;
+            if (slowPtr==fastPtr) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     public static void main(String[] args) {
         OperationLinkedList oll =new OperationLinkedList();
         Scanner sc = new Scanner(System.in);
@@ -279,7 +293,7 @@ public class OperationLinkedList {
         // oll.removeDupFromSortedLL();
         // oll.display();
         // oll.insertSorted(4);
-         oll.removeGivenKey(6);
+        // oll.removeGivenKey(5);
         oll.display();
         sc.close();
     }
