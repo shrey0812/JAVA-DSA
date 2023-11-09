@@ -34,20 +34,29 @@ public class DoublyLinkedList {
 
     public void displayForward(){
         ListNode temp=head;
-        while (temp!=null) {
+        if (head==null) {
+            System.out.println("null");
+            return;
+        }else{
+            while (temp!=null) {
             System.out.print(temp.data+" --> ");
             temp=temp.next;
         }
         System.out.print("null");
+        }
     }
 
     public void displayBackward(){
         ListNode temp=tail;
-        while (temp!=null) {
+        if (head==null) {
+            System.out.println("null");
+        }else{
+            while (temp!=null) {
             System.out.print(temp.data+" --> ");
             temp=temp.previous;
         }
         System.out.print("null");
+        }
     }
 
     public void insertAtBegin(int data){
