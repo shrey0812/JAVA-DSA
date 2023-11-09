@@ -2,7 +2,7 @@ package LinkedList.singleLL;
 
 import java.util.Scanner;
 
-public class MergeTwoSortedSLL {
+public class OperatonOnTwoSortedSLL {
     private ListNode head;
 
     private class ListNode{
@@ -65,9 +65,25 @@ public class MergeTwoSortedSLL {
         }
 
 
+        public ListNode addition(ListNode a, ListNode b){
+            ListNode dummy = new ListNode(0);
+            ListNode tail = dummy;
+            while (a!=null&&b!=null) {
+                tail.data = a.data+b.data;
+                tail=tail.next;
+            }
+            if (a==null) {
+                tail.next=b;
+            }else{
+                tail.next=a;
+            }
+            return dummy;
+        }
+
+
         public static void main(String[] args) {
-            MergeTwoSortedSLL msll1 = new MergeTwoSortedSLL();
-            MergeTwoSortedSLL mSll2 = new MergeTwoSortedSLL();
+            OperatonOnTwoSortedSLL msll1 = new OperatonOnTwoSortedSLL();
+            OperatonOnTwoSortedSLL mSll2 = new OperatonOnTwoSortedSLL();
             Scanner sc = new Scanner(System.in);
             int value =0;
             System.out.println("Enter the number of elements in first node");
@@ -84,9 +100,11 @@ public class MergeTwoSortedSLL {
                 value=sc.nextInt();
                 mSll2.insertAtLast(value);
             }
-            MergeTwoSortedSLL merged = new MergeTwoSortedSLL();
-            merged.head= merged.merge(msll1.head, mSll2.head);
-            merged.display();;
+            // OperatonOnTwoSortedSLL merged = new OperatonOnTwoSortedSLL();
+            // merged.head= merged.merge(msll1.head, mSll2.head);
+            // merged.display();
+            OperatonOnTwoSortedSLL added = new OperatonOnTwoSortedSLL();
+            added.head = added.addition(msll1.head, mSll2.head);
             sc.close();
         }
     }
