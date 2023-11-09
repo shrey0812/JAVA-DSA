@@ -32,20 +32,22 @@ public class DoublyLinkedList {
         return length;
     }
 
-    public void display(){
+    public void displayForward(){
         ListNode temp=head;
         while (temp!=null) {
             System.out.print(temp.data+" --> ");
             temp=temp.next;
         }
         System.out.print("null");
+    }
 
-        // ListNode temp=tail;
-        // while (temp!=null) {
-        //     System.out.print(temp.data+" --> ");
-        //     temp=temp.previous;
-        // }
-        // System.out.print("null");
+    public void displayBackward(){
+        ListNode temp=tail;
+        while (temp!=null) {
+            System.out.print(temp.data+" --> ");
+            temp=temp.previous;
+        }
+        System.out.print("null");
     }
 
     public void insertAtBegin(int data){
