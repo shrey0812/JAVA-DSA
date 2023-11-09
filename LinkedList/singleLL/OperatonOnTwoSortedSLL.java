@@ -68,16 +68,21 @@ public class OperatonOnTwoSortedSLL {
         public ListNode addition(ListNode a, ListNode b){
             ListNode dummy = new ListNode(0);
             ListNode tail = dummy;
-            while (a!=null&&b!=null) {
-                tail.data = a.data+b.data;
+            int carry=0;
+            while (a!=null || b!=null) {
+                int x = (a!=null)? a.data:0;
+                int y = (b!=null)? b.data:0;
+                int sum = carry+x+y;
+                carry= sum/10;
+                tail.next=new ListNode(sum%10);
                 tail=tail.next;
+                if(a!=null)a=a.next;
+                if(b!=null)b=b.next;
             }
-            if (a==null) {
-                tail.next=b;
-            }else{
-                tail.next=a;
+            if(carry>0){
+                tail.next=new ListNode(carry);
             }
-            return dummy;
+            return dummy.next;
         }
 
 
@@ -105,6 +110,7 @@ public class OperatonOnTwoSortedSLL {
             // merged.display();
             OperatonOnTwoSortedSLL added = new OperatonOnTwoSortedSLL();
             added.head = added.addition(msll1.head, mSll2.head);
+            added.display();
             sc.close();
         }
     }
