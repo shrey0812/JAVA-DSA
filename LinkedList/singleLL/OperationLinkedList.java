@@ -243,6 +243,16 @@ public class OperationLinkedList {
     }
 
 
+    public ListNode getStartingNode(ListNode slowptr){
+        ListNode temp =head;
+        while (slowptr!=temp) {
+            temp=temp.next;
+            slowptr=slowptr.next;
+        }
+        return temp;
+    }
+
+
     public boolean detectLoop(){
         ListNode fastPtr=head;
         ListNode slowPtr=head;
@@ -251,6 +261,7 @@ public class OperationLinkedList {
             slowPtr=slowPtr.next;
             if (slowPtr==fastPtr) {
                 return true;
+                // getStartingNode(slowPtr);
             }
         }
         return false;
