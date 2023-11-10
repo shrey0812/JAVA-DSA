@@ -1,5 +1,7 @@
 package LinkedList.doubleLL;
 
+import java.util.Scanner;
+
 public class DoublyLinkedList {
     
 
@@ -63,6 +65,7 @@ public class DoublyLinkedList {
         ListNode newNode= new ListNode(data);
         if(isEmpty()){
             head=newNode;
+            tail=newNode;
             length++;
         }else{
             head.previous=newNode;
@@ -76,6 +79,7 @@ public class DoublyLinkedList {
         ListNode newNode = new ListNode(data);
         if(isEmpty()){
             head=newNode;
+            tail=newNode;
             length++;
         }else{
             tail.next=newNode;
@@ -83,5 +87,20 @@ public class DoublyLinkedList {
             tail=newNode;
             length++;
         }
+    }
+
+    public static void main(String[] args) {
+        DoublyLinkedList dll = new DoublyLinkedList();
+        Scanner sc = new Scanner(System.in);
+        int value=0;
+        System.out.println("Enter the number of elements in the list");
+        int n= sc.nextInt();
+        System.out.println("Enter elements in the list");
+        for (int i = 0; i < n; i++) {
+            value = sc.nextInt();
+            dll.insertAtLast(value);
+        }
+        dll.displayForward();
+        sc.close();
     }
 }
