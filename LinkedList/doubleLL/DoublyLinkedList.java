@@ -98,10 +98,23 @@ public class DoublyLinkedList {
                 head=null;
                 tail=null;
         }else{
-            ListNode temp=head;
             head.next.previous=null;
             head = head.next;
-            temp=temp.next;
+            }
+        }
+
+
+        public void deleteLastNode(){
+            if(head==null){
+                throw new NoSuchElementException();
+            }
+            else if(head == tail){
+                head=null;
+                tail=null;
+            }
+            else{
+                tail.previous.next=null;
+                tail=tail.previous;
             }
         }
 
@@ -118,7 +131,8 @@ public class DoublyLinkedList {
             dll.insertAtLast(value);
         }
         dll.displayForward();
-        dll.deleteFirstNode();
+       // dll.deleteFirstNode();
+        dll.deleteLastNode();
         dll.displayForward();
         sc.close();
     }
