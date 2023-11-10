@@ -1,5 +1,6 @@
 package LinkedList.doubleLL;
 
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class DoublyLinkedList {
@@ -44,7 +45,7 @@ public class DoublyLinkedList {
             System.out.print(temp.data+" --> ");
             temp=temp.next;
         }
-        System.out.print("null");
+        System.out.println("null");
         }
     }
 
@@ -57,7 +58,7 @@ public class DoublyLinkedList {
             System.out.print(temp.data+" --> ");
             temp=temp.previous;
         }
-        System.out.print("null");
+        System.out.println("null");
         }
     }
 
@@ -89,6 +90,22 @@ public class DoublyLinkedList {
         }
     }
 
+    public void deleteFirstNode(){
+        if(isEmpty()){
+            throw new NoSuchElementException();
+        }
+        else if (head==tail) {
+                head=null;
+                tail=null;
+        }else{
+            ListNode temp=head;
+            head.next.previous=null;
+            head = head.next;
+            temp=temp.next;
+            }
+        }
+
+
     public static void main(String[] args) {
         DoublyLinkedList dll = new DoublyLinkedList();
         Scanner sc = new Scanner(System.in);
@@ -100,6 +117,8 @@ public class DoublyLinkedList {
             value = sc.nextInt();
             dll.insertAtLast(value);
         }
+        dll.displayForward();
+        dll.deleteFirstNode();
         dll.displayForward();
         sc.close();
     }
