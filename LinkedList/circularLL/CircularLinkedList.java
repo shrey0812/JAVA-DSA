@@ -41,6 +41,20 @@ public class CircularLinkedList {
         }
     }
 
+    public void insertAtLast(int value){
+        ListNode newNode = new ListNode(value);
+        if(last==null){
+            last=newNode;
+            last.next=newNode;
+            length++;
+        }else{
+            newNode.next=last.next;
+            last.next=newNode;
+            last=newNode;
+            length++;
+        }
+    }
+
     public void display(){
         ListNode temp=last.next;
         if(last==null){
@@ -63,7 +77,7 @@ public class CircularLinkedList {
         System.out.println("Enter elements in the list");
         for (int i = 0; i < n; i++) {
             value = sc.nextInt();
-            cll.insertAtBegin(value);
+            cll.insertAtLast(value);
         }
         cll.display();
         int c = cll.length();
