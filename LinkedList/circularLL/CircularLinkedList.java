@@ -45,7 +45,7 @@ public class CircularLinkedList {
         ListNode newNode = new ListNode(value);
         if(last==null){
             last=newNode;
-            last.next=newNode;
+            last.next=last;
             length++;
         }else{
             newNode.next=last.next;
