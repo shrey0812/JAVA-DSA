@@ -15,6 +15,15 @@ public class StackUsingLinkedList {
         }
     }
 
+    public StackUsingLinkedList(){
+        top=null;
+        lenght=0;
+    }
+
+    public int lenght(){
+        return lenght;
+    }
+
     public void push(int data){
         ListNode newNode = new ListNode(data);
         newNode.next= top;
