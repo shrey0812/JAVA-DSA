@@ -44,4 +44,14 @@ public class QueueUsingLinkedList {
             length++;
         }
     }
+
+    public void dequeue(){
+        if(isEmpty()){
+            return;
+        }
+        else{
+            front=front.next;
+            length--;
+        }
+    }
 }
