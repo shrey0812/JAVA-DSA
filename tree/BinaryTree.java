@@ -52,11 +52,40 @@ public class BinaryTree {
         stack.push(root);
         while (!stack.isEmpty()) {
             TreeNode temp = stack.pop();
-            System.out.print(temp.data);
+            System.out.print(temp.data+" ");
             if (temp.right!=null) {
                 stack.push(temp.right);
             }
             if (temp.left!=null) {
+                stack.push(temp.left);
+            }
+        }
+    }
+
+
+    public void inOrderRecursive(TreeNode root){
+        if(root==null){
+            return;
+        }
+        inOrderRecursive(root.left);
+        System.out.print(root.data+" ");
+        inOrderRecursive(root.right);
+    }
+
+
+    public void inOrderIterative(TreeNode root){
+        if(root==null){
+            return;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode temp = stack.pop();
+            if (temp.right!=null) {
+                stack.push(temp.right);
+            }
+            System.out.print(temp.data+" ");
+            if(temp.left!=null){
                 stack.push(temp.left);
             }
         }
