@@ -77,17 +77,18 @@ public class BinaryTree {
         if(root==null){
             return;
         }
-        Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-        while (!stack.isEmpty()) {
-            TreeNode temp = stack.pop();
-            if (temp.right!=null) {
-                stack.push(temp.right);
+        Stack<TreeNode> stackIs = new Stack<>();
+        stackIs.push(root);
+        while (!stackIs.isEmpty()) {
+            TreeNode temporary = stackIs.pop();
+            if(temporary.left!=null){
+                stackIs.push(temporary.left);
             }
-            System.out.print(temp.data+" ");
-            if(temp.left!=null){
-                stack.push(temp.left);
+            if (temporary.right!=null) {
+                stackIs.push(temporary.right);
             }
+            System.out.print(temporary.data+" ");
+            
         }
     }
 
