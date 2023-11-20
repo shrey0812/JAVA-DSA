@@ -117,6 +117,14 @@ public class BinaryTree {
                 TreeNode temp = stack.peek().right;
                 if (temp==null) {
                     temp=stack.pop();
+                    System.out.print(temp.data+" ");
+                    while (!stack.isEmpty()&&temp==stack.peek().right) {
+                        temp=stack.pop();
+                        System.out.print(temp.data+" ");
+                    }
+                }
+                else{
+                    current=temp;
                 }
             }
         }
