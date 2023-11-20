@@ -102,6 +102,27 @@ public class BinaryTree {
     }
 
 
+    public void postOrderIterative(TreeNode root){
+        if(root==null){
+            return;
+        }
+        Stack<TreeNode> stack= new Stack<>();
+        TreeNode current = root;
+        while (!stack.isEmpty() || current!=null) {
+            if(current!=null){
+                stack.push(current);
+                current=current.left;
+            }
+            else{
+                TreeNode temp = stack.peek().right;
+                if (temp==null) {
+                    temp=stack.pop();
+                }
+            }
+        }
+    }
+
+
     public static void main(String[] args) {
         BinaryTree bt = new BinaryTree();
         bt.createBinaryTree();
