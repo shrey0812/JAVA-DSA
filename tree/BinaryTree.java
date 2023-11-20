@@ -78,19 +78,20 @@ public class BinaryTree {
             return;
         }
         Stack<TreeNode> stackIs = new Stack<>();
-        stackIs.push(root);
-        while (!stackIs.isEmpty()) {
-            TreeNode temporary = stackIs.pop();
-            if(temporary.left!=null){
-                stackIs.push(temporary.left);
+        TreeNode temporary = root;
+        while (!stackIs.isEmpty() || temporary!=null) {
+            if(temporary!=null){
+                stackIs.push(temporary);
+                temporary=temporary.left;
             }
-            if (temporary.right!=null) {
-                stackIs.push(temporary.right);
+            else  {
+                temporary=stackIs.pop();
+                System.out.print(temporary.data+" ");
+                temporary=temporary.right;
             }
-            System.out.print(temporary.data+" ");
-            
         }
     }
+
 
     public static void main(String[] args) {
         BinaryTree bt = new BinaryTree();
