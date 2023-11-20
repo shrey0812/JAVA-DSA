@@ -92,6 +92,15 @@ public class BinaryTree {
         }
     }
 
+    public void postOrderRecursive(TreeNode root){
+        if(root==null){
+            return;
+        }
+        postOrderRecursive(root.left);
+        postOrderRecursive(root.right);
+        System.out.print(root.data+" ");
+    }
+
 
     public static void main(String[] args) {
         BinaryTree bt = new BinaryTree();
