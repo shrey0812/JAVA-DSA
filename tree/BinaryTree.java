@@ -151,6 +151,23 @@ public class BinaryTree {
         }
     }
 
+    
+    public int maximumValue(TreeNode root){
+        int maximumValue=root.data;
+        if(root==null){
+            return 0;
+        }
+        int left= maximumValue(root.left);
+        int right = maximumValue(root.right);
+        if(maximumValue<left){
+            maximumValue=left;
+        }
+        if(maximumValue<right){
+            maximumValue=right;
+        }
+        return maximumValue;
+    }
+
 
     public static void main(String[] args) {
         BinaryTree bt = new BinaryTree();
