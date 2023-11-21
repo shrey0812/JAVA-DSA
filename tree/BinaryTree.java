@@ -154,7 +154,7 @@ public class BinaryTree {
     
     public int maximumValue(TreeNode root){
         if(root==null){
-            return 0;
+            return Integer.MIN_VALUE;
         }
         int maximumValue=root.data;
         int left= maximumValue(root.left);
