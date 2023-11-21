@@ -153,10 +153,10 @@ public class BinaryTree {
 
     
     public int maximumValue(TreeNode root){
-        int maximumValue=root.data;
         if(root==null){
             return 0;
         }
+        int maximumValue=root.data;
         int left= maximumValue(root.left);
         int right = maximumValue(root.right);
         if(maximumValue<left){
