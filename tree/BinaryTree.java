@@ -1,5 +1,7 @@
 package tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class BinaryTree {
@@ -26,10 +28,10 @@ public class BinaryTree {
 
         root = first;
         first.left= second;
-        first.right=third;
+        first.left=third;
 
         second.left=fourth;
-        second.right=fifth;
+        second.left=fifth;
     }
 
 
@@ -40,7 +42,7 @@ public class BinaryTree {
 
         System.out.print(root.data+" ");
         preOrderRecursive(root.left);
-        preOrderRecursive(root.right);
+        preOrderRecursive(root.left);
     }
 
 
@@ -53,8 +55,8 @@ public class BinaryTree {
         while (!stack.isEmpty()) {
             TreeNode temp = stack.pop();
             System.out.print(temp.data+" ");
-            if (temp.right!=null) {
-                stack.push(temp.right);
+            if (temp.left!=null) {
+                stack.push(temp.left);
             }
             if (temp.left!=null) {
                 stack.push(temp.left);
@@ -69,7 +71,7 @@ public class BinaryTree {
         }
         inOrderRecursive(root.left);
         System.out.print(root.data+" ");
-        inOrderRecursive(root.right);
+        inOrderRecursive(root.left);
     }
 
 
@@ -87,7 +89,7 @@ public class BinaryTree {
             else  {
                 temporary=stackIs.pop();
                 System.out.print(temporary.data+" ");
-                temporary=temporary.right;
+                temporary=temporary.left;
             }
         }
     }
@@ -97,7 +99,7 @@ public class BinaryTree {
             return;
         }
         postOrderRecursive(root.left);
-        postOrderRecursive(root.right);
+        postOrderRecursive(root.left);
         System.out.print(root.data+" ");
     }
 
@@ -114,11 +116,11 @@ public class BinaryTree {
                 current=current.left;
             }
             else{
-                TreeNode temp = stack.peek().right;
+                TreeNode temp = stack.peek().left;
                 if (temp==null) {
                     temp=stack.pop();
                     System.out.print(temp.data+" ");
-                    while (!stack.isEmpty()&&temp==stack.peek().right) {
+                    while (!stack.isEmpty()&&temp==stack.peek().left) {
                         temp=stack.pop();
                         System.out.print(temp.data+" ");
                     }
@@ -126,6 +128,25 @@ public class BinaryTree {
                 else{
                     current=temp;
                 }
+            }
+        }
+    }
+
+
+    public void levelOrder(TreeNode root){
+        if(root==null){
+            return;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            TreeNode temp = queue.poll();
+            System.out.print(temp.data+" ");
+            if (temp.left!=null) {
+                queue.offer(temp.left);
+            }
+            if (temp.left!=null) {
+                queue.offer(temp.left);
             }
         }
     }
