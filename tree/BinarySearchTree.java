@@ -48,15 +48,22 @@ public class BinarySearchTree {
         inOrder(root.right);
     }
 
-    public TreeNode search(TreeNode root,int value){
-        if(root==null||root.data==value){
+    
+    public boolean search(int key){
+        root= search(root, key);
+        if(root==null)return false;
+        else return true;
+    }
+
+    public TreeNode search(TreeNode root,int key){
+        if(root==null||root.data==key){
             return root;
         }
-        if(root.data>value){
-            return search(root.left, value);
+        if(root.data>key){
+            return search(root.left, key);
         }
         else{
-            return search(root.right, value);
+            return search(root.right, key);
         }
     }
 
@@ -72,6 +79,10 @@ public class BinarySearchTree {
             bs.insertRecursive(value);
         }
         bs.inOrder();
+
+        // System.out.println("Node to be searched");
+        // int key = sc.nextInt();
+        // System.out.println(bs.search(key));
         sc.close();
     }
 }
