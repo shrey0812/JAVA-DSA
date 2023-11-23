@@ -67,6 +67,27 @@ public class BinarySearchTree {
         }
     }
 
+    public boolean isValidBTS(TreeNode root){
+        long max = Long.MAX_VALUE;
+        long min = Long.MIN_VALUE;
+        return isValidBTS(root,min,max);
+    }
+
+    public boolean isValidBTS(TreeNode root, long min, long max){
+        if(root==null){
+            return true;
+        }
+        if(root.data<=min||root.data>=max){
+            return false;
+        }
+        boolean left = isValidBTS(root, min, root.data);
+        if(left){
+            boolean right = isValidBTS(root, root.data, max);
+            return right;
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         BinarySearchTree bs = new BinarySearchTree();
         Scanner sc = new Scanner(System.in);
