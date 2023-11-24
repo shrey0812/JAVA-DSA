@@ -17,13 +17,13 @@ public class SpiralFormMatrix {
             c--;
             if(k<r){
                 for ( i =c-1; i >=l; i--) {
-                System.out.print(arr[i][c-1]+" ");
+                System.out.print(arr[r-1][i]+" ");
             }
             r--;
             }
             if(l<c){
                 for (i = r-1; i>=k; i--) {
-                System.out.print(arr[r-1][k]+" ");
+                System.out.print(arr[i][l]+" ");
             }
             l++;
             }
