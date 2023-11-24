@@ -3,6 +3,22 @@ package problems;
 import java.util.Scanner;
 
 public class SearchMatrix {
+
+    public void forSortedMatrix(int[][] arr, int n, int x){
+        int i = 0;
+        int j = n-1;
+        while(i<n&&j>=0){
+            if(arr[i][j]==x){
+                System.out.println("Present");
+                return;
+            }
+            if(arr[i][j]>x){
+                j--;
+            }
+            else i++;
+        }
+        System.out.println("Not found");
+    }
     public static void main(String[] args) {
         int[][] arr =  new int[4][4];
         Scanner sc = new Scanner(System.in);
