@@ -11,7 +11,7 @@ public class SpiralFormMatrix {
             System.out.print(arr[k][i]+" ");
             }
             k++;
-            for (i = k; i < c; i++) {
+            for (i = k; i < r; i++) {
             System.out.print(arr[i][c-1]+" ");
             }
             c--;
