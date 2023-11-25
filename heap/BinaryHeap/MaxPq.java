@@ -21,7 +21,25 @@ public class MaxPq {
 
     public void insert(int value){
         n++;
-        heap[n] = value;
+        heap[n]=value;
+        swim(n);
+    }
+
+    private void swim(int k){
+        while(k>1&& heap[k/2]<heap[k]){
+            int temp = heap[k];
+            heap[k]= heap[k/2];
+            heap[k/2]=temp;
+            k=k/2;
+        }
+    }
+
+    
+    public void display(){
+        System.out.println("The elements of heap are");
+        for (int i = 1; i < heap.length; i++) {
+            System.out.print(heap[i]+" ");
+        }
     }
 
     public static void main(String[] args) {
@@ -38,6 +56,7 @@ public class MaxPq {
         }
         System.out.println(maxPq.size());
         System.out.println(maxPq.isEmpty());
+        maxPq.display();
         sc.close();
     }
 }
