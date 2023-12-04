@@ -34,6 +34,24 @@ public class MaxPq {
         }
     }
 
+
+    public int deleteMax(){
+        int max = heap[1];
+        swap(1,n);
+        n--;
+        sink(1);
+        heap[n+1]=null;
+        return max;
+    }
+
+    public void swap(int a , int b){
+        int temp = heap[a];
+    }
+
+    public void sink(int a){
+
+    }
+
     
     public void display(){
         System.out.println("The elements of heap are");
