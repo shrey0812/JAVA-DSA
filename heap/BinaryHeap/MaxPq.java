@@ -46,10 +46,20 @@ public class MaxPq {
 
     public void swap(int a , int b){
         int temp = heap[a];
+        heap[a]=heap[b];
+        heap[b]=temp;
     }
 
-    public void sink(int a){
-
+    private void sink(int k){
+        while(2*k<=n){
+            int j = 2*k;
+            if(j<n&&heap[j]<heap[j+1])
+            j++;
+            if(heap[k]>=heap[j])
+            break;
+            swap(k,j);
+            k=j;
+        }
     }
 
     
